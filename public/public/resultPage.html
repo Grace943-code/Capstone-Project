@@ -1,23 +1,140 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
+    <title>Document</title>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
+    <link rel="stylesheet" href="htpps://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-
+    awesome.min.css">
+
     <meta charset="utf-8">
     <title>Mental Health Quiz</title>
+    <style>
+        body{padding: 2em;}
+    </style>
   </head>
+  
 <body>
 
 <h1>Mental Health Quiz: Your Results</h1>
 <br></br>
 <div>Thank you for taking the time to take the quiz.
      Please remember, this test should not be used as a form of diagnosis.
-     The results based on common symtoms found within mental disorders.
+     <!-- The results based on common symptoms found within mental disorders. -->
      <!-- These symptoms do not 100% tell you whether you are suffering from a mental disorder. -->
-     Please enter your email address to recieve your results and what to do if your score is very high.</div>
+     Please enter your email address to receive your results and what to do if your score is very high.</div>
   <br></br>
     <div>
-      Email Address <input type="text" name="EmailAddress"><br>
-      
-        <a href="Submit" class="button">submit</a>
+
+<body>
+    <!-- Start Contact Section -->
+    <div class="w3-container w3-light-grey w3-padding-32 w3-padding-large" id="contact">
+        <div class="w3-content" style="max-width:600px">
+            <h4 class="w3-center"><b>Contact Us</b></h4>
+
+
+            <!--Update the URL for thank you page on form submit -->
+            <iframe name="hidden_iframe" id="hidden_iframe" style="display:none;"
+                onload="if(submitted) {window.location='http://127.0.0.1:5500/public/public/index.html';}"></iframe>
+
+            <!-- Update the Google forms URL in action-->
+            <form
+            action="https://docs.google.com/forms/u/0/d/e/1FAIpQLSfQA6LHwjasaPojvJY4xQd6tInLvMxEryNf2v4lDerhiodN4g/formResponse"
+                 target="_self" method="POST" onsubmit="return validateForm();">
+
+
+                <div class="w3-section">
+                    <label>Name</label>
+                    <input class="w3-input w3-border" type="text" placeholder="Name" id="name" required
+                        name="entry.2088266705">
+                </div>
+                <div class="w3-section">
+                    <label>Email</label>
+                    <input class="w3-input w3-border" type="text" placeholder="Email" id="email" required
+                        name="entry.77442763">
+                </div>
+                <div class="w3-section">
+                    <label>Phone</label>
+                    <input class="w3-input w3-border" type="text" placeholder="Phone" id="phone" required
+                        name="entry.691543359">
+                </div>
+
+                <div class="w3-section">
+                  <a href="https://docs.google.com/forms/d/e/1FAIpQLSfQA6LHwjasaPojvJY4xQd6tInLvMxEryNf2v4lDerhiodN4g/viewform" class="button">Send</a>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- End Contact Section -->
+    <script type="text/javascript">var submitted = false;</script>
+
+    <script type="text/javascript">
+        function validateName() {
+            var name = document.getElementById('name').value;
+            if (name.length == 0) {
+                alert("Name can't be blank");
+                return false;
+
+            }
+            if (!name.match(/^[a-zA-Z]{3,}(?: [a-zA-Z]+){0,2}$/)) {
+                alert("Please enter your correct name");//Validation Message
+                return false;
+            }
+            return true;
+        }
+
+        function validatePhone() {
+            var phone = document.getElementById('phone').value;
+            if (phone.length == 0) {
+                alert("Phone number can't be blank");//Validation Message
+                return false;
+            }
+
+            if (!phone.match(/^[0]?[789]\d{9}$/)) {
+                alert("Please enter a correct phone number");//Validation Message
+                return false;
+            }
+
+            return true;
+
+        }
+
+        function validateEmail() {
+
+            var email = document.getElementById('email').value;
+            if (email.length == 0) {
+                alert("Email can't be blank");//Validation Message
+                return false;
+
+            }
+
+            if (!email.match(/^[A-Za-z\._\-[0-9]*[@][A-Za-z]*[\.][a-z]{2,4}$/)) {
+                alert("Please enter a correct email address");//Validation Message
+                return false;
+
+            }
+
+            return true;
+
+        }
+
+
+        function validateForm() {
+            if (!validateName() || !validatePhone() || !validateEmail()) {
+
+                alert("Form not submitted");//Validation Message
+                return false;
+            }
+            else {
+                submitted = true;
+                return true;
+            }
+        }
+    </script>
       
     </div>
 <!-- <div>
@@ -26,7 +143,7 @@
   number - number: you show slight symptoms
 </div> -->
 
-<style>
+<!-- <style>
 div {
   background-color:  pink;
   width: 500px;
@@ -40,6 +157,6 @@ body {
   h1{
     padding-left: 15em;
   }
-</style>
+</style> -->
 </body>
 </html>
