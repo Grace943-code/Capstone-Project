@@ -14,7 +14,7 @@ const socketIO = require("socket.io")(http, {
 app.use(cors());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
-app.use(express.static('../React-js/client/build'))
+app.use(express.static('build'))
 
 const fetchID = () => Math.random().toString(36).substring(2, 10);
 
